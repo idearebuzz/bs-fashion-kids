@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boys Collection – BS Fashion Kids</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2b6cb8;
+      --blue-dark: #1e5599;
+      --blue-deep: #1a3a6e;
+      --yellow: #F5C518;
+      --green: #22863a;
+      --teal: #0891b2;
+      --teal-light: #E0F7FA;
+      --teal-soft: #B2EBF2;
+      --orange: #EA6C1E;
+      --red: #e53e3e;
+      --bg: #F0F8FF;
+      --white: #ffffff;
+      --text: #2d3748;
+      --muted: #718096;
+      --border: #BDE0F5;
+      --accent: #1565C0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--blue-deep);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 14px rgba(26,58,110,0.5);
+    }
+    .header-main {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; flex-shrink: 0;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.25); }
+    .back-btn svg { fill: white; width: 20px; height: 20px; }
+
+    .header-title {
+      flex: 1;
+      font-family: 'Baloo 2', cursive;
+      font-size: 17px;
+      font-weight: 800;
+      color: white;
+    }
+    .header-actions { display: flex; gap: 6px; }
+    .icon-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; position: relative;
+      transition: background 0.2s;
+    }
+    .icon-btn:hover { background: rgba(255,255,255,0.22); }
+    .icon-btn svg { fill: white; width: 20px; height: 20px; }
+    .badge {
+      position: absolute; top: -2px; right: -2px;
+      background: var(--yellow); color: var(--blue-deep);
+      font-size: 9px; font-weight: 900;
+      border-radius: 50%; width: 16px; height: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── SEARCH ── */
+    .search-bar {
+      background: var(--blue);
+      padding: 10px 16px;
+    }
+    .search-inner {
+      max-width: 480px; margin: 0 auto;
+      display: flex; gap: 8px;
+    }
+    .search-input {
+      flex: 1; border: none; border-radius: 10px;
+      padding: 9px 14px; font-size: 13px;
+      font-family: 'Nunito', sans-serif; outline: none;
+      background: white; color: var(--text);
+    }
+    .search-input::placeholder { color: #bbb; }
+    .search-btn {
+      background: var(--yellow); border: none; border-radius: 10px;
+      padding: 9px 16px; font-size: 12px; font-weight: 800;
+      color: var(--blue-deep); cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: transform 0.15s;
+    }
+    .search-btn:hover { transform: scale(1.04); }
+
+    /* ── FILTER STRIP ── */
+    .filter-strip {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-inner {
+      max-width: 480px; margin: 0 auto;
+      display: flex; align-items: center;
+      padding: 0 12px;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 4px;
+      padding: 10px 13px;
+      font-size: 12px; font-weight: 800;
+      color: var(--muted);
+      border: none; background: none; cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-family: 'Nunito', sans-serif;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .filter-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .filter-btn:hover:not(.active) { color: var(--blue); }
+    .filter-divider { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; margin: 0 4px; }
+
+    /* ── RESULT BAR ── */
+    .result-bar {
+      max-width: 480px; margin: 0 auto;
+      padding: 10px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .result-count { font-size: 12px; font-weight: 700; color: var(--muted); }
+    .sort-select {
+      border: 1.5px solid var(--border); border-radius: 20px;
+      padding: 5px 12px; font-size: 11px; font-weight: 800;
+      color: var(--blue-deep); font-family: 'Nunito', sans-serif;
+      background: white; cursor: pointer; outline: none;
+    }
+
+    /* ── AGE PILLS ── */
+    .age-pills {
+      max-width: 480px; margin: 0 auto;
+      display: flex; gap: 8px; padding: 0 16px 12px;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .age-pills::-webkit-scrollbar { display: none; }
+    .age-pill {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px; font-weight: 800;
+      cursor: pointer; border: 1.5px solid var(--border);
+      background: white; color: var(--muted);
+      font-family: 'Nunito', sans-serif;
+      transition: all 0.2s;
+    }
+    .age-pill.active { background: var(--blue); color: white; border-color: var(--blue); }
+    .age-pill:hover:not(.active) { border-color: var(--blue); color: var(--blue); }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      max-width: 480px; margin: 0 auto 4px;
+      padding: 0 14px;
+    }
+    .hero-inner {
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1a3a6e 0%, #2b6cb8 55%, #1565C0 100%);
+      padding: 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      overflow: hidden; position: relative; min-height: 118px;
+    }
+    .hero-inner::before {
+      content: '';
+      position: absolute;
+      width: 150px; height: 150px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      top: -40px; right: -20px;
+    }
+    .hero-inner::after {
+      content: '';
+      position: absolute;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(245,197,24,0.15);
+      bottom: -20px; right: 100px;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--yellow); color: var(--blue-deep);
+      font-size: 10px; font-weight: 900;
+      padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 7px; letter-spacing: 0.5px;
+    }
+    .hero-title {
+      font-family: 'Baloo 2', cursive;
+      font-size: 23px; font-weight: 800;
+      color: white; line-height: 1.2;
+    }
+    .hero-sub { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 4px; font-weight: 600; }
+    .hero-art { font-size: 60px; z-index: 1; flex-shrink: 0; }
+
+    /* ── MAIN ── */
+    main { max-width: 480px; margin: 0 auto; padding-bottom: 80px; }
+
+    /* ── SUBCATEGORY SCROLL ── */
+    .subcat-scroll {
+      display: flex; gap: 10px;
+      padding: 14px 16px 4px;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .subcat-scroll::-webkit-scrollbar { display: none; }
+    .subcat-card {
+      flex-shrink: 0;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      cursor: pointer;
+    }
+    .subcat-icon {
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      transition: transform 0.2s;
+      border: 2px solid transparent;
+    }
+    .subcat-card:hover .subcat-icon { transform: scale(1.08); }
+    .subcat-card.active .subcat-icon { border-color: var(--blue); }
+    .subcat-label { font-size: 10px; font-weight: 800; color: #444; text-align: center; line-height: 1.2; }
+
+    /* ── SECTION LABEL ── */
+    .section-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px 10px;
+    }
+    .section-title {
+      font-family: 'Baloo 2', cursive;
+      font-size: 17px; font-weight: 800; color: var(--blue-deep);
+    }
+    .see-all {
+      font-size: 12px; font-weight: 800; color: var(--blue);
+      cursor: pointer; text-decoration: none;
+    }
+    .see-all:hover { text-decoration: underline; }
+
+    /* ── HORIZONTAL SCROLL ── */
+    .h-scroll {
+      display: flex; gap: 10px;
+      padding: 0 16px 4px;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .h-scroll::-webkit-scrollbar { display: none; }
+    .h-card {
+      flex-shrink: 0; width: 128px;
+      background: white; border-radius: 14px;
+      overflow: hidden; border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .h-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(43,108,184,0.18); }
+    .h-card-img {
+      width: 100%; height: 108px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 46px;
+    }
+    .h-card-body { padding: 7px 9px 9px; }
+    .h-card-name { font-size: 11px; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+    .h-card-price { font-size: 13px; font-weight: 900; color: var(--blue); }
+
+    /* ── PRODUCT GRID ── */
+    .grid-wrap { padding: 0 12px; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .p-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid #C8E0F8;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.45s ease both;
+    }
+    .p-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(43,108,184,0.18); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .p-card:nth-child(1) { animation-delay: 0.05s; }
+    .p-card:nth-child(2) { animation-delay: 0.10s; }
+    .p-card:nth-child(3) { animation-delay: 0.15s; }
+    .p-card:nth-child(4) { animation-delay: 0.20s; }
+    .p-card:nth-child(5) { animation-delay: 0.25s; }
+    .p-card:nth-child(6) { animation-delay: 0.30s; }
+    .p-card:nth-child(7) { animation-delay: 0.35s; }
+    .p-card:nth-child(8) { animation-delay: 0.40s; }
+
+    .p-img {
+      width: 100%; aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 60px; position: relative;
+    }
+    .disc-tag {
+      position: absolute; top: 8px; left: 8px;
+      background: var(--red); color: white;
+      font-size: 9px; font-weight: 900;
+      padding: 3px 8px; border-radius: 6px;
+    }
+    .new-tag {
+      position: absolute; top: 8px; left: 8px;
+      background: var(--green); color: white;
+      font-size: 9px; font-weight: 900;
+      padding: 3px 8px; border-radius: 6px;
+    }
+    .hot-tag {
+      position: absolute; top: 8px; left: 8px;
+      background: var(--orange); color: white;
+      font-size: 9px; font-weight: 900;
+      padding: 3px 8px; border-radius: 6px;
+    }
+    .wish-btn {
+      position: absolute; top: 8px; right: 8px;
+      width: 30px; height: 30px;
+      background: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      cursor: pointer; border: none;
+      transition: transform 0.2s;
+    }
+    .wish-btn:hover { transform: scale(1.2); }
+    .wish-btn.active { color: var(--red); }
+
+    .p-body { padding: 10px 12px 12px; }
+    .p-name { font-size: 13px; font-weight: 800; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
+    .p-age { font-size: 10px; color: var(--blue); font-weight: 700; margin-bottom: 4px; }
+    .p-stars { display: flex; align-items: center; gap: 2px; margin-bottom: 5px; }
+    .star { color: var(--yellow); font-size: 11px; }
+    .r-count { font-size: 10px; color: var(--muted); }
+
+    .size-row { display: flex; gap: 4px; margin-bottom: 8px; flex-wrap: wrap; }
+    .size-chip {
+      padding: 2px 7px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: 9px; font-weight: 800; color: var(--muted);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .size-chip:hover, .size-chip.selected {
+      border-color: var(--blue); color: var(--blue);
+      background: #EFF8FF;
+    }
+
+    .p-prices { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+    .p-price { font-size: 15px; font-weight: 900; color: var(--blue); }
+    .p-old { font-size: 11px; color: #ccc; text-decoration: line-through; }
+    .p-save { font-size: 10px; font-weight: 800; color: var(--green); }
+
+    .card-btns { display: flex; gap: 7px; }
+    .add-btn {
+      flex: 1;
+      background: var(--blue); color: white; border: none;
+      border-radius: 10px; padding: 8px 6px;
+      font-size: 11px; font-weight: 800; cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .add-btn:hover { background: var(--blue-dark); transform: scale(1.02); }
+    .buy-btn {
+      flex: 1;
+      background: white; color: var(--orange); border: 2px solid var(--orange);
+      border-radius: 10px; padding: 8px 6px;
+      font-size: 11px; font-weight: 800; cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: all 0.15s;
+    }
+    .buy-btn:hover { background: var(--orange); color: white; }
+
+    /* ── FEATURED WIDE CARD ── */
+    .wide-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #E8F4FF 0%, #C8E0F8 100%);
+      border-radius: 16px;
+      border: 1.5px solid #A8D0F0;
+      padding: 18px;
+      display: flex; align-items: center; gap: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.4s ease both;
+    }
+    .wide-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(43,108,184,0.2); }
+    .wide-card-img { font-size: 72px; flex-shrink: 0; }
+    .wide-tag {
+      display: inline-block;
+      background: var(--blue); color: white;
+      font-size: 9px; font-weight: 900;
+      padding: 2px 9px; border-radius: 10px; margin-bottom: 5px;
+    }
+    .wide-name {
+      font-family: 'Baloo 2', cursive;
+      font-size: 18px; font-weight: 800; color: var(--blue-deep); line-height: 1.2;
+    }
+    .wide-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+    .wide-price { font-size: 18px; font-weight: 900; color: var(--blue); margin-top: 6px; display: inline; }
+    .wide-old { font-size: 12px; color: #bbb; text-decoration: line-through; margin-left: 6px; }
+    .wide-btn {
+      background: var(--blue); color: white; border: none;
+      border-radius: 20px; padding: 9px 20px;
+      font-size: 12px; font-weight: 800; cursor: pointer;
+      font-family: 'Nunito', sans-serif; margin-top: 10px;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .wide-btn:hover { background: var(--blue-dark); transform: scale(1.03); }
+
+    /* ── PROMO BANNER ── */
+    .promo-banner {
+      margin: 14px 14px 0;
+      background: linear-gradient(135deg, #FFF8E1 0%, #FFE082 100%);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      border: 1.5px solid #FFD54F;
+    }
+    .promo-tag { font-size: 10px; font-weight: 900; color: #b45309; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .promo-title {
+      font-family: 'Baloo 2', cursive;
+      font-size: 18px; font-weight: 800; color: var(--blue-deep); line-height: 1.2;
+    }
+    .promo-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .promo-art { font-size: 52px; }
+    .promo-btn {
+      background: var(--blue); color: white; border: none;
+      border-radius: 20px; padding: 9px 16px;
+      font-size: 11px; font-weight: 800; cursor: pointer;
+      font-family: 'Nunito', sans-serif; margin-top: 10px; display: inline-block;
+      transition: transform 0.15s;
+    }
+    .promo-btn:hover { transform: scale(1.05); }
+
+    /* ── LOAD MORE ── */
+    .load-more-wrap { text-align: center; padding: 20px 16px; }
+    .load-more-btn {
+      background: white; color: var(--blue);
+      border: 2px solid var(--blue);
+      border-radius: 24px; padding: 12px 36px;
+      font-size: 13px; font-weight: 800;
+      cursor: pointer; font-family: 'Nunito', sans-serif;
+      transition: all 0.2s;
+    }
+    .load-more-btn:hover { background: var(--blue); color: white; }
+
+    /* ── BOTTOM NAV ── */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 480px;
+      background: white; border-top: 1.5px solid var(--border);
+      display: flex; align-items: stretch; height: 60px; z-index: 200;
+    }
+    .nav-btn {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 3px;
+      cursor: pointer; border: none; background: none;
+      font-family: 'Nunito', sans-serif; transition: background 0.15s;
+    }
+    .nav-btn:hover { background: #EFF8FF; }
+    .nav-btn svg { width: 22px; height: 22px; fill: #ccc; }
+    .nav-btn span { font-size: 10px; font-weight: 800; color: #ccc; }
+    .nav-btn.active svg { fill: var(--blue); }
+    .nav-btn.active span { color: var(--blue); }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 74px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--blue-deep); color: white;
+      font-size: 12px; font-weight: 700;
+      padding: 9px 22px; border-radius: 24px;
+      opacity: 0; transition: all 0.3s;
+      pointer-events: none; white-space: nowrap; z-index: 300;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 400; display: none;
+      align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 24px 24px 0 0;
+      width: 100%; max-width: 480px;
+      padding: 20px; max-height: 85vh; overflow-y: auto;
+      animation: slideUp 0.3s ease;
+      position: relative;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to   { transform: translateY(0); }
+    }
+    .modal-handle { width: 40px; height: 4px; background: #eee; border-radius: 2px; margin: 0 auto 16px; }
+    .modal-img { font-size: 80px; text-align: center; margin-bottom: 12px; border-radius: 16px; padding: 10px; }
+    .modal-name { font-family: 'Baloo 2', cursive; font-size: 20px; font-weight: 800; color: var(--blue-deep); }
+    .modal-age { font-size: 12px; color: var(--blue); font-weight: 700; margin: 3px 0 8px; }
+    .modal-price-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .modal-price { font-size: 22px; font-weight: 900; color: var(--blue); }
+    .modal-old { font-size: 14px; color: #bbb; text-decoration: line-through; }
+    .modal-disc { font-size: 12px; font-weight: 800; color: var(--green); }
+    .modal-label { font-size: 12px; font-weight: 800; color: var(--muted); margin-bottom: 8px; }
+    .modal-sizes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .modal-size {
+      padding: 6px 14px; border: 2px solid var(--border);
+      border-radius: 8px; font-size: 12px; font-weight: 800;
+      color: var(--muted); cursor: pointer; transition: all 0.15s;
+    }
+    .modal-size.active { border-color: var(--blue); color: var(--blue); background: #EFF8FF; }
+    .modal-colors { display: flex; gap: 10px; margin-bottom: 16px; }
+    .color-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      cursor: pointer; border: 2px solid transparent; transition: all 0.15s;
+    }
+    .color-dot.active { border-color: var(--blue-deep); transform: scale(1.15); }
+    .modal-btns { display: flex; gap: 10px; }
+    .modal-add {
+      flex: 1; background: var(--blue); color: white; border: none;
+      border-radius: 12px; padding: 13px; font-size: 14px; font-weight: 800;
+      cursor: pointer; font-family: 'Nunito', sans-serif; transition: background 0.2s;
+    }
+    .modal-add:hover { background: var(--blue-dark); }
+    .modal-buy {
+      flex: 1; background: var(--orange); color: white; border: none;
+      border-radius: 12px; padding: 13px; font-size: 14px; font-weight: 800;
+      cursor: pointer; font-family: 'Nunito', sans-serif; transition: background 0.2s;
+    }
+    .modal-buy:hover { opacity: 0.88; }
+    .modal-close {
+      position: absolute; top: 20px; right: 20px; font-size: 18px;
+      cursor: pointer; background: #f0f0f0; border: none; border-radius: 50%;
+      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+    }
+
+    @media (min-width: 520px) {
+      body { background: #d8e8f5; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-main">
+    <a class="back-btn" href="index.html">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </a>
+    <div class="header-title">👦 Boys Collection</div>
+    <div class="header-actions">
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </button>
+      <button class="icon-btn" id="cart-btn">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.1 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 23.46 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <div class="badge" id="cart-count">0</div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search-bar">
+  <div class="search-inner">
+    <input class="search-input" type="text" placeholder="Search boys t-shirts, jeans, shoes..." id="search-input" />
+    <button class="search-btn">Search</button>
+  </div>
+</div>
+
+<!-- FILTER STRIP -->
+<div class="filter-strip">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="setFilter(this,'all')">All</button>
+    <div class="filter-divider"></div>
+    <button class="filter-btn" onclick="setFilter(this,'tshirt')">👕 T-Shirts</button>
+    <button class="filter-btn" onclick="setFilter(this,'shirt')">👔 Shirts</button>
+    <button class="filter-btn" onclick="setFilter(this,'bottom')">👖 Bottoms</button>
+    <button class="filter-btn" onclick="setFilter(this,'ethnic')">🧣 Ethnic</button>
+    <button class="filter-btn" onclick="setFilter(this,'jacket')">🧥 Jackets</button>
+    <button class="filter-btn" onclick="setFilter(this,'set')">🎽 Sets</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- RESULT BAR -->
+  <div class="result-bar">
+    <div class="result-count" id="result-count">Showing 138 products</div>
+    <select class="sort-select" onchange="showToast('🔄 Sorted!')">
+      <option>Popularity</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+      <option>Newest First</option>
+      <option>Discount</option>
+    </select>
+  </div>
+
+  <!-- AGE FILTER -->
+  <div class="age-pills">
+    <div class="age-pill active" onclick="setAge(this)">All Ages</div>
+    <div class="age-pill" onclick="setAge(this)">0–2 yrs</div>
+    <div class="age-pill" onclick="setAge(this)">2–4 yrs</div>
+    <div class="age-pill" onclick="setAge(this)">4–6 yrs</div>
+    <div class="age-pill" onclick="setAge(this)">6–8 yrs</div>
+    <div class="age-pill" onclick="setAge(this)">8–12 yrs</div>
+    <div class="age-pill" onclick="setAge(this)">12–16 yrs</div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">🔥 NEW ARRIVALS</div>
+        <div class="hero-title">Cool Styles<br>for Boys 2025</div>
+        <div class="hero-sub">T-Shirts, Jeans, Kurtas & More</div>
+      </div>
+      <div class="hero-art">👦🎽</div>
+    </div>
+  </div>
+
+  <!-- SUBCATEGORIES -->
+  <div class="section-head" style="padding-top:16px;">
+    <div class="section-title">Browse by Type</div>
+    <a class="see-all" href="#">See all</a>
+  </div>
+  <div class="subcat-scroll">
+    <div class="subcat-card" onclick="setFilter(document.querySelector('[data-f=tshirt]'),'tshirt')">
+      <div class="subcat-icon" style="background:#EFF8FF;">👕</div>
+      <div class="subcat-label">T-Shirts</div>
+    </div>
+    <div class="subcat-card" onclick="setFilter(document.querySelector('[data-f=shirt]'),'shirt')">
+      <div class="subcat-icon" style="background:#E8F5E9;">👔</div>
+      <div class="subcat-label">Shirts</div>
+    </div>
+    <div class="subcat-card" onclick="setFilter(document.querySelector('[data-f=bottom]'),'bottom')">
+      <div class="subcat-icon" style="background:#FFF3E0;">👖</div>
+      <div class="subcat-label">Jeans &<br>Trousers</div>
+    </div>
+    <div class="subcat-card" onclick="setFilter(document.querySelector('[data-f=ethnic]'),'ethnic')">
+      <div class="subcat-icon" style="background:#F3E5F5;">🧣</div>
+      <div class="subcat-label">Kurta<br>Sets</div>
+    </div>
+    <div class="subcat-card" onclick="setFilter(document.querySelector('[data-f=jacket]'),'jacket')">
+      <div class="subcat-icon" style="background:#ECEFF1;">🧥</div>
+      <div class="subcat-label">Jackets</div>
+    </div>
+    <div class="subcat-card" onclick="setFilter(document.querySelector('[data-f=set]'),'set')">
+      <div class="subcat-icon" style="background:#E8F5E9;">🎽</div>
+      <div class="subcat-label">Clothing<br>Sets</div>
+    </div>
+    <div class="subcat-card" onclick="showToast('👟 Shoes section coming soon!')">
+      <div class="subcat-icon" style="background:#FFF8E1;">👟</div>
+      <div class="subcat-label">Shoes</div>
+    </div>
+  </div>
+
+  <!-- TRENDING -->
+  <div class="section-head">
+    <div class="section-title">Trending Now 🔥</div>
+    <a class="see-all" href="#">See all</a>
+  </div>
+  <div class="h-scroll">
+    <div class="h-card" onclick="addToCart('Dino Tee',249)">
+      <div class="h-card-img" style="background:#EFF8FF;">🦕</div>
+      <div class="h-card-body"><div class="h-card-name">Dino Tee</div><div class="h-card-price">₹249</div></div>
+    </div>
+    <div class="h-card" onclick="addToCart('Space Hoodie',599)">
+      <div class="h-card-img" style="background:#F0F4FF;">🚀</div>
+      <div class="h-card-body"><div class="h-card-name">Space Hoodie</div><div class="h-card-price">₹599</div></div>
+    </div>
+    <div class="h-card" onclick="addToCart('Cargo Joggers',449)">
+      <div class="h-card-img" style="background:#F1F8E9;">🪖</div>
+      <div class="h-card-body"><div class="h-card-name">Cargo Joggers</div><div class="h-card-price">₹449</div></div>
+    </div>
+    <div class="h-card" onclick="addToCart('Shark Tshirt',279)">
+      <div class="h-card-img" style="background:#E3F2FD;">🦈</div>
+      <div class="h-card-body"><div class="h-card-name">Shark Tee</div><div class="h-card-price">₹279</div></div>
+    </div>
+    <div class="h-card" onclick="addToCart('Football Set',549)">
+      <div class="h-card-img" style="background:#E8F5E9;">⚽</div>
+      <div class="h-card-body"><div class="h-card-name">Football Set</div><div class="h-card-price">₹549</div></div>
+    </div>
+  </div>
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner">
+    <div>
+      <div class="promo-tag">🎒 BACK TO SCHOOL</div>
+      <div class="promo-title">School<br>Uniforms 2025</div>
+      <div class="promo-sub">Shirts, trousers & bags</div>
+      <button class="promo-btn" onclick="showToast('📚 School collection loading...')">Shop Now</button>
+    </div>
+    <div class="promo-art">🎒📏</div>
+  </div>
+
+  <!-- ALL PRODUCTS -->
+  <div class="section-head" style="margin-top:4px;">
+    <div class="section-title">Best Sellers 🏆</div>
+    <a class="see-all" href="#">See all</a>
+  </div>
+  <div class="grid-wrap">
+    <div class="product-grid" id="product-grid">
+
+      <!-- FEATURED WIDE CARD -->
+      <div class="wide-card" onclick="openModal('Hero Boys Tracksuit','4–14 yrs','🎽','#E8F4FF',799,1499,'47%')">
+        <div class="wide-card-img">🎽</div>
+        <div>
+          <div class="wide-tag">⭐ BESTSELLER</div>
+          <div class="wide-name">Hero Boys Tracksuit</div>
+          <div class="wide-sub">For ages 4–14 yrs · Top + Pant</div>
+          <div>
+            <span class="wide-price">₹799</span>
+            <span class="wide-old">₹1,499</span>
+          </div>
+          <button class="wide-btn" onclick="event.stopPropagation(); addToCart('Hero Boys Tracksuit',799)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- CARD 1 -->
+      <div class="p-card" data-type="tshirt" onclick="openModal('Superhero Tee','2–10 yrs','🦸','#EFF8FF',249,399,'38%')">
+        <div class="p-img" style="background:#EFF8FF;">
+          🦸
+          <div class="disc-tag">38% OFF</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Superhero Tee</div>
+          <div class="p-age">👦 Age: 2–10 yrs</div>
+          <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(294)</span></div>
+          <div class="size-row">
+            <span class="size-chip" onclick="selectSize(this,event)">2Y</span>
+            <span class="size-chip selected" onclick="selectSize(this,event)">4Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">6Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">8Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹249</span>
+            <span class="p-old">₹399</span>
+            <span class="p-save">Save ₹150</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Superhero Tee',249);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="p-card" data-type="ethnic" onclick="openModal('Sherwani Kurta Set','3–12 yrs','🧣','#F3E5F5',699,1199,'42%')">
+        <div class="p-img" style="background:#F3E5F5;">
+          🧣
+          <div class="new-tag">NEW</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Sherwani Kurta Set</div>
+          <div class="p-age">👦 Age: 3–12 yrs</div>
+          <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(117)</span></div>
+          <div class="size-row">
+            <span class="size-chip selected" onclick="selectSize(this,event)">3Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">5Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">8Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">12Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹699</span>
+            <span class="p-old">₹1,199</span>
+            <span class="p-save">Save ₹500</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Sherwani Kurta Set',699);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="p-card" data-type="bottom" onclick="openModal('Slim Fit Jeans','3–12 yrs','👖','#FFF3E0',399,649,'39%')">
+        <div class="p-img" style="background:#FFF3E0;">
+          👖
+          <div class="hot-tag">🔥 HOT</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Slim Fit Jeans</div>
+          <div class="p-age">👦 Age: 3–12 yrs</div>
+          <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(388)</span></div>
+          <div class="size-row">
+            <span class="size-chip" onclick="selectSize(this,event)">3Y</span>
+            <span class="size-chip selected" onclick="selectSize(this,event)">6Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">8Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">12Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹399</span>
+            <span class="p-old">₹649</span>
+            <span class="p-save">Save ₹250</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Slim Fit Jeans',399);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="p-card" data-type="jacket" onclick="openModal('Bomber Jacket','4–12 yrs','🧥','#ECEFF1',849,1299,'35%')">
+        <div class="p-img" style="background:#ECEFF1;">
+          🧥
+          <div class="disc-tag">35% OFF</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Bomber Jacket</div>
+          <div class="p-age">👦 Age: 4–12 yrs</div>
+          <div class="p-stars"><span class="star">★★★★</span><span class="r-count">(82)</span></div>
+          <div class="size-row">
+            <span class="size-chip selected" onclick="selectSize(this,event)">4Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">6Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">10Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹849</span>
+            <span class="p-old">₹1,299</span>
+            <span class="p-save">Save ₹450</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Bomber Jacket',849);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="p-card" data-type="shirt" onclick="openModal('Printed Casual Shirt','3–10 yrs','👔','#E8F5E9',329,549,'40%')">
+        <div class="p-img" style="background:#E8F5E9;">
+          👔
+          <div class="new-tag">NEW</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Printed Casual Shirt</div>
+          <div class="p-age">👦 Age: 3–10 yrs</div>
+          <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(165)</span></div>
+          <div class="size-row">
+            <span class="size-chip" onclick="selectSize(this,event)">3Y</span>
+            <span class="size-chip selected" onclick="selectSize(this,event)">5Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">7Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">10Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹329</span>
+            <span class="p-old">₹549</span>
+            <span class="p-save">Save ₹220</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Printed Casual Shirt',329);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="p-card" data-type="set" onclick="openModal('Denim Shorts Set','2–8 yrs','🩳','#E3F2FD',449,749,'40%')">
+        <div class="p-img" style="background:#E3F2FD;">
+          🩳
+          <div class="hot-tag">🔥 HOT</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Denim Shorts + Tee Set</div>
+          <div class="p-age">👦 Age: 2–8 yrs</div>
+          <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(203)</span></div>
+          <div class="size-row">
+            <span class="size-chip" onclick="selectSize(this,event)">2Y</span>
+            <span class="size-chip selected" onclick="selectSize(this,event)">4Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">6Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">8Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹449</span>
+            <span class="p-old">₹749</span>
+            <span class="p-save">Save ₹300</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Denim Shorts Set',449);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="p-card" data-type="tshirt" onclick="openModal('Graphic Dino Hoodie','3–10 yrs','🦕','#F1F8E9',499,799,'38%')">
+        <div class="p-img" style="background:#F1F8E9;">
+          🦕
+          <div class="disc-tag">38% OFF</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Graphic Dino Hoodie</div>
+          <div class="p-age">👦 Age: 3–10 yrs</div>
+          <div class="p-stars"><span class="star">★★★★</span><span class="r-count">(74)</span></div>
+          <div class="size-row">
+            <span class="size-chip" onclick="selectSize(this,event)">3Y</span>
+            <span class="size-chip selected" onclick="selectSize(this,event)">5Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">8Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">10Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹499</span>
+            <span class="p-old">₹799</span>
+            <span class="p-save">Save ₹300</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Graphic Dino Hoodie',499);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="p-card" data-type="ethnic" onclick="openModal('Pathani Suit Set','4–14 yrs','🧕','#FFF8E1',599,999,'40%')">
+        <div class="p-img" style="background:#FFF8E1;">
+          🧕
+          <div class="disc-tag">40% OFF</div>
+          <button class="wish-btn" onclick="toggleWish(this,event)">♡</button>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Pathani Suit Set</div>
+          <div class="p-age">👦 Age: 4–14 yrs</div>
+          <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(136)</span></div>
+          <div class="size-row">
+            <span class="size-chip" onclick="selectSize(this,event)">4Y</span>
+            <span class="size-chip selected" onclick="selectSize(this,event)">6Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">10Y</span>
+            <span class="size-chip" onclick="selectSize(this,event)">14Y</span>
+          </div>
+          <div class="p-prices">
+            <span class="p-price">₹599</span>
+            <span class="p-old">₹999</span>
+            <span class="p-save">Save ₹400</span>
+          </div>
+          <div class="card-btns">
+            <button class="add-btn" onclick="addToCart('Pathani Suit Set',599);event.stopPropagation()">🛒 Add</button>
+            <button class="buy-btn" onclick="showToast('💳 Redirecting...');event.stopPropagation()">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="load-more-wrap">
+    <button class="load-more-btn" onclick="showToast('📦 Loading more items...')">Load More</button>
+  </div>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="nav-btn" onclick="window.location.href='index.html'">
+    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <span>Home</span>
+  </button>
+  <button class="nav-btn active">
+    <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+    <span>Categories</span>
+  </button>
+  <button class="nav-btn">
+    <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4z"/></svg>
+    <span>Track</span>
+  </button>
+  <button class="nav-btn">
+    <svg viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3z"/></svg>
+    <span>Wishlist</span>
+  </button>
+  <button class="nav-btn">
+    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    <span>Profile</span>
+  </button>
+</nav>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img" id="modal-img">🦸</div>
+    <div class="modal-name" id="modal-name">Superhero Tee</div>
+    <div class="modal-age" id="modal-age">👦 Age: 2–10 yrs</div>
+    <div class="modal-price-row">
+      <span class="modal-price" id="modal-price">₹249</span>
+      <span class="modal-old" id="modal-old">₹399</span>
+      <span class="modal-disc" id="modal-disc">38% OFF</span>
+    </div>
+    <div class="modal-label">Select Size</div>
+    <div class="modal-sizes">
+      <div class="modal-size active" onclick="selectModalSize(this)">2Y</div>
+      <div class="modal-size" onclick="selectModalSize(this)">4Y</div>
+      <div class="modal-size" onclick="selectModalSize(this)">6Y</div>
+      <div class="modal-size" onclick="selectModalSize(this)">8Y</div>
+      <div class="modal-size" onclick="selectModalSize(this)">10Y</div>
+      <div class="modal-size" onclick="selectModalSize(this)">12Y</div>
+    </div>
+    <div class="modal-label">Select Color</div>
+    <div class="modal-colors">
+      <div class="color-dot active" style="background:#1565C0;" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#E53935;" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#388E3C;" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#F57C00;" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#37474F;" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#F5C518;" onclick="selectColor(this)"></div>
+    </div>
+    <div class="modal-btns">
+      <button class="modal-add" id="modal-add-btn">🛒 Add to Cart</button>
+      <button class="modal-buy" onclick="showToast('⚡ Proceeding to Buy Now!')">⚡ Buy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  let cartCount = 0;
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function addToCart(name, price) {
+    cartCount++;
+    document.getElementById('cart-count').textContent = cartCount;
+    showToast('✅ ' + name + ' added to cart!');
+  }
+
+  function toggleWish(btn, e) {
+    e.stopPropagation();
+    btn.classList.toggle('active');
+    btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+    showToast(btn.classList.contains('active') ? '❤️ Added to wishlist!' : '💔 Removed from wishlist');
+  }
+
+  function selectSize(chip, e) {
+    e.stopPropagation();
+    const row = chip.closest('.size-row');
+    row.querySelectorAll('.size-chip').forEach(c => c.classList.remove('selected'));
+    chip.classList.add('selected');
+  }
+
+  function setFilter(btn, type) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    const cards = document.querySelectorAll('.p-card');
+    let shown = 0;
+    cards.forEach(c => {
+      if (type === 'all' || c.dataset.type === type) {
+        c.style.display = ''; shown++;
+      } else {
+        c.style.display = 'none';
+      }
+    });
+    document.getElementById('result-count').textContent = 'Showing ' + (shown + 1) + ' products';
+    if (btn) showToast('✨ Filtered: ' + btn.textContent.trim());
+  }
+
+  function setAge(pill) {
+    document.querySelectorAll('.age-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    showToast('👦 Age: ' + pill.textContent);
+  }
+
+  function openModal(name, age, img, bg, price, old, disc) {
+    document.getElementById('modal-name').textContent = name;
+    document.getElementById('modal-age').textContent = '👦 Age: ' + age;
+    document.getElementById('modal-img').textContent = img;
+    document.getElementById('modal-img').style.background = bg;
+    document.getElementById('modal-price').textContent = '₹' + price.toLocaleString();
+    document.getElementById('modal-old').textContent = '₹' + old.toLocaleString();
+    document.getElementById('modal-disc').textContent = disc + ' OFF';
+    document.getElementById('modal-add-btn').onclick = () => { addToCart(name, price); closeModal(); };
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (!e || e.target === document.getElementById('modal-overlay')) {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function selectModalSize(el) {
+    document.querySelectorAll('.modal-size').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function selectColor(dot) {
+    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+    dot.classList.add('active');
+  }
+
+  document.getElementById('search-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') showToast('🔍 Searching boys collection...');
+  });
+</script>
+</body>
+</html>

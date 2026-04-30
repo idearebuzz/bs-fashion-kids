@@ -646,7 +646,7 @@
 <div class="cat-tabs">
   <div class="cat-tabs-inner" id="tabs">
     <div class="tab active" onclick="switchTab(this,'all')">All</div>
-    <div class="tab" onclick="switchTab(this,'boys')">Boys</div>
+    <div class="tab" onclick="window.location.href='boys.html'">Boys</div>
     <div class="tab" onclick="window.location.href='girls-dresses.html'">Girls</div>
     <div class="tab" onclick="switchTab(this,'toddlers')">Toddlers</div>
     <div class="tab" onclick="switchTab(this,'newborn')">Newborn</div>
@@ -680,7 +680,7 @@
         <div class="pill-icon" style="background:#FFF0F5;">👗</div>
         <div class="pill-label">Girls<br>Dresses</div>
       </div>
-      <div class="pill" onclick="filterCategory('boys')">
+      <div class="pill" onclick="window.location.href='boys.html'">
         <div class="pill-icon" style="background:#EFF8FF;">👕</div>
         <div class="pill-label">Boys<br>Tops</div>
       </div>
@@ -795,7 +795,7 @@
           </div>
         </div>
 
-        <div class="p-card" data-cat="boys">
+        <div class="p-card" data-cat="boys" onclick="window.location.href='boys.html'" style="cursor:pointer;">
           <div class="p-img" style="background:#EFF8FF;">
             🦸
             <div class="disc-tag">35% OFF</div>
@@ -805,7 +805,7 @@
             <div class="p-name">Hero Boys Set</div>
             <div class="p-stars"><span class="star">★★★★</span><span class="r-count">(94)</span></div>
             <div class="p-prices"><span class="p-price">₹329</span><span class="p-old">₹499</span></div>
-            <button class="add-btn" onclick="addToCart('Hero Boys Set',329)">Add to Cart</button>
+            <button class="add-btn" onclick="addToCart('Hero Boys Set',329);event.stopPropagation()">Add to Cart</button>
           </div>
         </div>
 
@@ -879,7 +879,7 @@
           </div>
         </div>
 
-        <div class="p-card" data-cat="boys">
+        <div class="p-card" data-cat="boys" onclick="window.location.href='boys.html'" style="cursor:pointer;">
           <div class="p-img" style="background:#EEF9FF;">
             🧢
             <div class="disc-tag">15% OFF</div>
@@ -889,7 +889,7 @@
             <div class="p-name">Boys Cargo Pants</div>
             <div class="p-stars"><span class="star">★★★★</span><span class="r-count">(53)</span></div>
             <div class="p-prices"><span class="p-price">₹389</span><span class="p-old">₹459</span></div>
-            <button class="add-btn" onclick="addToCart('Boys Cargo Pants',389)">Add to Cart</button>
+            <button class="add-btn" onclick="addToCart('Boys Cargo Pants',389);event.stopPropagation()">Add to Cart</button>
           </div>
         </div>
 
