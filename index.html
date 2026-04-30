@@ -647,7 +647,7 @@
   <div class="cat-tabs-inner" id="tabs">
     <div class="tab active" onclick="switchTab(this,'all')">All</div>
     <div class="tab" onclick="switchTab(this,'boys')">Boys</div>
-    <div class="tab" onclick="switchTab(this,'girls')">Girls</div>
+    <div class="tab" onclick="window.location.href='girls-dresses.html'">Girls</div>
     <div class="tab" onclick="switchTab(this,'toddlers')">Toddlers</div>
     <div class="tab" onclick="switchTab(this,'newborn')">Newborn</div>
     <div class="tab" onclick="switchTab(this,'shoes')">Shoes</div>
@@ -676,7 +676,7 @@
       <a class="see-all" href="#">See all</a>
     </div>
     <div class="pills-scroll">
-      <div class="pill" onclick="filterCategory('girls')">
+      <div class="pill" onclick="window.location.href='girls-dresses.html'">
         <div class="pill-icon" style="background:#FFF0F5;">👗</div>
         <div class="pill-label">Girls<br>Dresses</div>
       </div>
@@ -781,7 +781,7 @@
     <div class="grid-wrap">
       <div class="product-grid" id="product-grid">
 
-        <div class="p-card" data-cat="girls">
+        <div class="p-card" data-cat="girls" onclick="window.location.href='girls-dresses.html'" style="cursor:pointer;">
           <div class="p-img" style="background:#FFF0F5;">
             🎀
             <div class="disc-tag">40% OFF</div>
@@ -791,7 +791,7 @@
             <div class="p-name">Girls Party Frock</div>
             <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(182)</span></div>
             <div class="p-prices"><span class="p-price">₹399</span><span class="p-old">₹659</span></div>
-            <button class="add-btn" onclick="addToCart('Girls Party Frock',399)">Add to Cart</button>
+            <button class="add-btn" onclick="addToCart('Girls Party Frock',399);event.stopPropagation()">Add to Cart</button>
           </div>
         </div>
 
@@ -865,7 +865,7 @@
           </div>
         </div>
 
-        <div class="p-card" data-cat="girls">
+        <div class="p-card" data-cat="girls" onclick="window.location.href='girls-dresses.html'" style="cursor:pointer;">
           <div class="p-img" style="background:#FFF0E8;">
             🌺
             <div class="disc-tag">45% OFF</div>
@@ -875,7 +875,7 @@
             <div class="p-name">Ethnic Lehenga</div>
             <div class="p-stars"><span class="star">★★★★★</span><span class="r-count">(89)</span></div>
             <div class="p-prices"><span class="p-price">₹599</span><span class="p-old">₹1099</span></div>
-            <button class="add-btn" onclick="addToCart('Ethnic Lehenga',599)">Add to Cart</button>
+            <button class="add-btn" onclick="addToCart('Ethnic Lehenga',599);event.stopPropagation()">Add to Cart</button>
           </div>
         </div>
 
